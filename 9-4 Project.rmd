@@ -1,0 +1,47 @@
+---
+title: "Week4_Project"
+author: "Kumiko Urgent"
+date: "8/16/2020"
+output: ioslides_presentation
+---
+
+```{r}
+library(UsingR)
+```
+
+## Overview
+
+This presentation shows how to use an application, "Price Prediction for a diamond".
+The Diamonds data set from *UsingR* package was used.  Approximately 54,000 diamonds and their characteristics are in this data set.  The variables are **price**, **size (in carat)**, **type of cut**, **color**,**clarity**,**length (x)**,**width(y)**, and **depth(z)**.
+
+Price was predicted using a linear regression with three variables: carat, cut and color.
+
+
+
+## Dataset Detail
+```{r,echo=FALSE,comment=""}
+dim(diamonds)
+head(diamonds)
+```
+
+## Model
+A linear regression model using three variables, carat, cut and color was used for the prediction.
+```{r,echo=FALSE,comment=""}
+fit <- lm(price ~ I(carat-mean(carat)) + cut + color, data = diamonds)
+summary(fit)
+```
+
+## Input required
+
+- carat: You can put any size of a diamond between 0.5 and 5 carat.
+- cut: Five levels shown below
+- color: Seven levels shown below
+
+```{r,echo=FALSE,comment=""}
+unique(diamonds$cut)
+unique(diamonds$color)
+```
+ Click this link if you would like to know more about the color.
+ [link](http://www.mlcld.com/colour.aspx) 
+
+
